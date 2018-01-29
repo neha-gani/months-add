@@ -59,8 +59,7 @@ public class TestTest {
        
         generate(effectiveFrom, currentDtTm);
     }
-    
-   /* @Test
+    @Test
     public void sameDateQ() {
 
         DateTime effectiveFrom = new DateTime(2018, 3, 29, 0, 0, 0, 0);
@@ -129,7 +128,7 @@ public class TestTest {
         DateTime currentDtTm = new DateTime(2018, 12, 29, 0, 0, 0, 0);
        
         generate(effectiveFrom, currentDtTm);
-    }*/
+    }
     
     @Test
     public void sameDateHY() {
@@ -255,7 +254,10 @@ public class TestTest {
                     if (!quarterMonths.contains(effectiveFrom.getMonthOfYear())
                             || effectiveFrom.getDayOfMonth() <= 28) {// That month
                         roundedEffFrom =  !quarterMonths.contains(effectiveFrom.getMonthOfYear()) ? getCurrentQuarter(effectiveFrom) : effectiveFrom;
-                        addAssessment(roundedEffFrom);
+                        if (!currentDtTm.isBefore(roundedEffFrom)) {
+                            addAssessment(roundedEffFrom);
+                            
+                        }
                         roundedEffFrom = getNextQuarter(roundedEffFrom);
                     } else {
                         roundedEffFrom = effectiveFrom;
