@@ -1,37 +1,130 @@
-# months-add
+#months
 package com.example.demo;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 import org.joda.time.DateTime;
 import org.joda.time.Months;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TestName;
 
-public class Test2 {
+
+//@RunWith(SpringJUnit4ClassRunner.class)
+public class TestTest {
+
+    @Rule public TestName name = new TestName();
+    
+    @Before
+    public void printName() {
+        
+       System.out.println("\n===============================================================================================================\n");
+       System.out.println("\n\t" + name.getMethodName() );
+    }
 
 
-    public static void main(String[] args) {
-        Date date = new Date(1453919400000l);// 1454005800000l);
-                                             // //1459189800000l
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
+   /* @Test
+    public void t1() {
 
-        /**/
-        Date date1 = new Date(1545935400000l);
-        Calendar cal1 = Calendar.getInstance();
-        cal1.setTime(date1);
-
-        // DateTime datetm = new
-        // DateTime(KIUtils.getTodaysDate("Asia/Singapore"));
+        DateTime effectiveFrom = new DateTime(2017, 12, 29, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 1, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void t2() {
 
         DateTime effectiveFrom = new DateTime(2017, 12, 28, 0, 0, 0, 0);
-        DateTime currentDtTm = new DateTime(2018, 12, 28, 0, 0, 0, 0);
-        int freqNum = 1;
+        DateTime currentDtTm = new DateTime(2018, 1, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void t3() {
+
+        DateTime effectiveFrom = new DateTime(2017, 12, 27, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 1, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }*/
+    
+  //  @Test
+    public void t1Q() {
+
+        DateTime effectiveFrom = new DateTime(2018, 3, 27, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void sameDateQ() {
+
+        DateTime effectiveFrom = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void sameDateQ2() {
+
+        DateTime effectiveFrom = new DateTime(2018, 3, 27, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterQ() {
+
+        DateTime effectiveFrom = new DateTime(2017, 5, 27, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterQ2() {
+
+        DateTime effectiveFrom = new DateTime(2017, 6, 29, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterQ3() {
+
+        DateTime effectiveFrom = new DateTime(2017, 6, 28, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterQ4() {
+
+        DateTime effectiveFrom = new DateTime(2017, 6, 28, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+   // @Test
+    public void t3() {
+
+        DateTime effectiveFrom = new DateTime(2017, 12, 27, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 1, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    public static void generate(DateTime effectiveFrom, DateTime currentDtTm){
+        int freqNum = 2;
         // DateTime currentDtTm = new DateTime();
         System.out.println(Months.monthsBetween(currentDtTm, effectiveFrom).getMonths());
         System.out.println("effectiveFrom\t" + effectiveFrom);
@@ -46,10 +139,10 @@ public class Test2 {
                      * MONTH
                      */
                     DateTime roundedMEffFrom = effectiveFrom.getDayOfMonth() <= 28 ? effectiveFrom : effectiveFrom.plusMonths(1);
-                    DateTime roundedMCurr = currentDtTm.getDayOfMonth() <= 28 ? currentDtTm.minusMonths(1) : currentDtTm;
+                    DateTime roundedMCurr = currentDtTm.getDayOfMonth() < 28 ? currentDtTm.minusMonths(1) : currentDtTm;
                     
                     // 28th
-                    if (roundedMCurr.isAfter(roundedMEffFrom)) {
+                    if (!roundedMCurr.isBefore(roundedMEffFrom)) {
                         DateTime assmentFor = roundedMEffFrom;
                         while(true){
                             addAssessment(assmentFor);
@@ -222,8 +315,6 @@ public class Test2 {
                 default:
 
             }
-        
-            
         }
     }
 
