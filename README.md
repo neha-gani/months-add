@@ -254,8 +254,7 @@ public class TestTest {
                     // 28th
                     if (!quarterMonths.contains(effectiveFrom.getMonthOfYear())
                             || effectiveFrom.getDayOfMonth() <= 28) {// That month
-                        roundedEffFrom =  !quarterMonths.contains(effectiveFrom.getMonthOfYear()) ? effectiveFrom.withMonthOfYear(
-                                quarterMonths.get((int) Math.ceil(effectiveFrom.getMonthOfYear() / 3))) : effectiveFrom;
+                        roundedEffFrom =  !quarterMonths.contains(effectiveFrom.getMonthOfYear()) ? getCurrentQuarter(effectiveFrom) : effectiveFrom;
                         addAssessment(roundedEffFrom);
                         roundedEffFrom = getNextQuarter(roundedEffFrom);
                     } else {
@@ -453,6 +452,25 @@ public class TestTest {
         }
         return roundedCurr.withYear(previousQuarterYear).withMonthOfYear(previousQuarterMonth);
     }
+    
+    private static DateTime getCurrentQuarter(DateTime roundedCurr) {
+        int locForMonth = roundedCurr.getMonthOfYear();
+        int previousQuarterMonth;
+        int previousQuarterYear = roundedCurr.getYear();
+
+        if (locForMonth <= 12 && locForMonth >= 10) {// Q4
+            previousQuarterMonth = 12;
+        } else if (locForMonth <= 9 && locForMonth >= 7) {// Q3
+            previousQuarterMonth = 9;
+        } else if (locForMonth <= 6 && locForMonth >= 4) {// Q2
+            previousQuarterMonth = 6;
+        } else {// Q1
+            previousQuarterMonth = 3;
+
+        }
+        return roundedCurr.withYear(previousQuarterYear).withMonthOfYear(previousQuarterMonth);
+    }
+
 
     private static void addAssessment(DateTime assmentFor) {
         System.out.println("Adding assessment for \t" + assmentFor);
