@@ -1,4 +1,3 @@
-#months
 package com.example.demo;
 
 import java.util.Arrays;
@@ -61,7 +60,7 @@ public class TestTest {
         generate(effectiveFrom, currentDtTm);
     }
     
-    @Test
+   /* @Test
     public void sameDateQ() {
 
         DateTime effectiveFrom = new DateTime(2018, 3, 29, 0, 0, 0, 0);
@@ -114,6 +113,94 @@ public class TestTest {
        
         generate(effectiveFrom, currentDtTm);
     }
+    @Test
+    public void beforeAfterQ5() {
+
+        DateTime effectiveFrom = new DateTime(2018, 6, 28, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterQ6() {
+
+        DateTime effectiveFrom = new DateTime(2017, 11, 28, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 12, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }*/
+    
+    @Test
+    public void sameDateHY() {
+
+        DateTime effectiveFrom = new DateTime(2018, 5, 27, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 5, 27, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+  /*  
+    @Test
+    public void sameDateHY2() {
+
+        DateTime effectiveFrom = new DateTime(2018, 3, 27, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterHY() {
+
+        DateTime effectiveFrom = new DateTime(2017, 5, 27, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterHY2() {
+
+        DateTime effectiveFrom = new DateTime(2017, 6, 29, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfteHY3() {
+
+        DateTime effectiveFrom = new DateTime(2017, 6, 28, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterHY4() {
+
+        DateTime effectiveFrom = new DateTime(2017, 6, 28, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    @Test
+    public void beforeAfterHY5() {
+
+        DateTime effectiveFrom = new DateTime(2018, 6, 28, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 3, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }
+    
+    @Test
+    public void beforeAfterHY6() {
+
+        DateTime effectiveFrom = new DateTime(2017, 11, 28, 0, 0, 0, 0);
+        DateTime currentDtTm = new DateTime(2018, 12, 29, 0, 0, 0, 0);
+       
+        generate(effectiveFrom, currentDtTm);
+    }*/
    // @Test
     public void t3() {
 
@@ -131,8 +218,6 @@ public class TestTest {
         System.out.println("currentDtTm\t" + currentDtTm + "\n");
         if (!currentDtTm.isBefore(effectiveFrom)) {
             
-
-
             switch (freqNum) {
                 case 1:
                     /**
