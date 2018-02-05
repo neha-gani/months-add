@@ -1,0 +1,23 @@
+Requirements’ Gathering
+Raising of User stories in confluence – Acceptance Criteria, using Jbehave for automation
+Pre planning (if required), re-writing/defining scope
+Planning (Planning Poker, points based or capacity based)
+Frozen for the next 2 weeks’ Sprint
+
+Development
+Commit
+Unit/Integration Test Cases
+Build (Triggered by commits)
+
+CICD - Deployment till Pre PROD
+Unit/Integration Test Cases
+Sonar Test coverage and Code vulnerabilities, Bugs check
+Fortify Security and Code vulnerabilities check
+Clean Up and Deploy (Blue Green deployments with 0 downtime)
+Automation test cases (Sign Off required or not)
+
+PCF
+Deployment Scaling/Network connectivity, load balancing, performance metrics, log management
+
+
+
