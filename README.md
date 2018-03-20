@@ -39,7 +39,7 @@ public class Eval {
         varB.setVarVal(new BigDecimal("200"));
 
         formulaObj.setlVariables(Arrays.asList(varA, varB));
-        formulaObj.setCalcFormula("(A+B)");
+        formulaObj.setCalcFormula("100-A/B*(C+D)");
         System.out.println(evaluateFormula(formulaObj));
     }
     
