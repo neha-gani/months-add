@@ -9,6 +9,7 @@ INNER JOIN Table2 as t2 on t1.Key = t2.Key
 WHERE t2.FilterField = 'abc') t3
 WHERE t1.key = t3.key
 
+https://stackoverflow.com/questions/3422673/evaluating-a-math-expression-given-in-string-form
 
 package com.example.demo;
 
