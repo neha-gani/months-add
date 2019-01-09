@@ -37,3 +37,26 @@ import org.springframework.context.annotation.PropertySource;
 	StringEncryptor encryptorBean;
     
     String decrypt1 = encryptorBean.decrypt(environment.getProperty("name"));
+    
+    
+    ---------------------------------------------------------------------------------------------
+    Get from env variables
+    @Bean(name = "encryptorBean")
+	public StringEncryptor stringEncryptor() {
+	    PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
+	    SimpleStringPBEConfig config = new SimpleStringPBEConfig();
+	    System.out.println("You set :::::" + System.getenv("pass"));
+	    config.setPassword(System.getenv("pass"));
+	    config.setAlgorithm("PBEWITHMD5ANDDES");
+	    config.setKeyObtentionIterations("1000");
+	    config.setPoolSize("1");
+	    config.setProviderName("SunJCE");
+	    config.setSaltGeneratorClassName("org.jasypt.salt.RandomSaltGenerator");
+	    config.setStringOutputType("base64");
+	    encryptor.setConfig(config);
+	    return encryptor;
+	}
+	
+	
+	Properties file:
+	name=qQyIIgg1IUGrZrNpq/uzMg==
