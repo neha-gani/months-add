@@ -1,3 +1,6 @@
+encrypt.bat input="Niha" password=MYPAS_WORD algorithm=PBEWITHMD5ANDDES
+
+
 pom.xml
 		<dependency>
 		    <groupId>org.jasypt</groupId>
